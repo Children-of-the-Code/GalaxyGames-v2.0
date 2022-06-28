@@ -4,7 +4,7 @@ export class CustomerProfile extends React.Component<any,any>{
     constructor(props:any){
         super(props);
         this.state = {
-            inputID : "number"
+            inputID : ""
         }
     }
 
@@ -12,7 +12,7 @@ export class CustomerProfile extends React.Component<any,any>{
         return(
             <div>
                 <h3>Please enter your ID Number</h3>
-                <input type= "number" value= {this.state.inputID} onInput= {event => this.updateInputID(event)}></input> 
+                <input value= {this.state.inputID} onInput= {event => this.updateInputID(event)}></input> 
                 <button onClick = {event=>this.submit(event)}>submit</button>
             </div>
         )
@@ -25,7 +25,7 @@ export class CustomerProfile extends React.Component<any,any>{
     }
     submit(event:any){
         let ID = this.state.inputID;
-        fetch("https://isagames.azurewebsites.net/", {
+        fetch("https://isagames.azurewebsites.net/id/"+ ID, {
             method: "GET",
             mode: "cors",
             headers: {
@@ -39,7 +39,7 @@ export class CustomerProfile extends React.Component<any,any>{
                 // "address": Address || "",
                 // "city": City || "",
                 // "state": State || "",
-                // "zipcode": ZipCode || "",
+                // "zipcode": ,
                 // "telephone": Telephone || ""
             })
         });
