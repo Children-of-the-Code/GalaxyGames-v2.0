@@ -4,13 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CustomerProfile } from './Pages/CustomerProfile';
+import { AddCustomer } from './Pages/AddCustomer';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CustomerProfile/>
+    <HashRouter>
+      <div>
+      <Routes>
+        <Route path="/AddCustomer" element = {<AddCustomer/>}/>
+      </Routes>
+      </div>
+    </HashRouter>
   </React.StrictMode>
 );
 
